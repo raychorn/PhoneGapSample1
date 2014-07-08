@@ -17,7 +17,11 @@
     // PhoneGap is ready
     //
     function onDeviceReady() {
-        // Empty
+		alert('device ready');
+        $(document).ready("#anchor_show_alert").click(function() {
+                                               alert('anchor clicked');
+											   showAlert();
+                                               });
     }
 
     // alert dialog dismissed
@@ -61,7 +65,7 @@
 		<h1>Show Alert</h1>
 	</div>
 	<div data-role="content">	
-		<a href="#" onClick="javascript: showAlert();">Alert</a>
+		<a id="anchor_show_alert" href="#">Alert</a>
 	</div>
 	<div data-role="footer">
 		<h2>PhoneGap Sample 1</h2>&nbsp;|&nbsp;<h1><a href="#page1">Home</a></h1>
