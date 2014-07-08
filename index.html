@@ -16,15 +16,12 @@
 	});
 
 	$(document).bind('pageinit', function () {
-		alert("document-pageinit");
-		$('#btn_show_alert').click(function(){
-		   showAlert();
-    	});
+	   showAlert();
 	});
 
     // alert dialog dismissed
     function alertDismissed() {
-        // do something
+        alert('Take picture...');
     }
 
     // Show a custom alert
