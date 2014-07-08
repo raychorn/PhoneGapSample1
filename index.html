@@ -11,11 +11,12 @@
     <script type="text/javascript" charset="utf-8">
 
 	$(document).ready(function(){
+		alert("document-ready");
 		$(this).delegate("#page2", "pageinit", function(ev, data){}); 
 	});
 
-	$('#page2').bind('pageinit', function () {
-		alert("page2-pageinit");
+	$(document).bind('pageinit', function () {
+		alert("document-pageinit");
 		$('#anchor_show_alert').click(function(){
 		   showAlert();
     	});
