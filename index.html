@@ -10,10 +10,11 @@
     <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-	$(document).ready("#anchor_show_alert").click(function() {
-										   alert('anchor clicked');
-										   showAlert();
-										   });
+	$(document).bind('pageinit', function () {
+		$('#anchor_show_alert').click(function(){
+		   showAlert();
+    	});
+	});
 
     // alert dialog dismissed
     function alertDismissed() {
