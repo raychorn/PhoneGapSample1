@@ -7,34 +7,22 @@
     <script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js" type="text/javascript"></script>
 
-    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-	$(document).ready(function(){
-		alert("document-ready");
-		$(this).delegate("#page2", "pageinit", function(ev, data){}); 
-	});
-
-	$(document).bind('pageinit', function () {
-	   showAlert();
-	});
-
-    // alert dialog dismissed
     function alertDismissed() {
         alert('Take picture...');
     }
 
-    // Show a custom alert
-    //
     function showAlert() {
-        navigator.notification.alert(
-            'You are the winner!',  // message
-            alertDismissed,         // callback
-            'Game Over',            // title
-            'Done'                  // buttonName
-        );
+		navigator.notification.alert(
+			'Message box please display....', // message
+			altertDismissed,             // no callback
+			'Message Box Title',         // title
+			'Continue'                   // button texr
+		);
     }
-
+	
     </script>
 </head> 
 <body> 
@@ -60,7 +48,7 @@
 		<h1>Show Alert</h1>
 	</div>
 	<div data-role="content">	
-		<p><a id="btn_show_alert" href="#" data-inline="button" data-role="button" data-ajax="false">Show Alert</a></p>
+        <input type="button" value="Take Photo" onclick="showAlert()" />
 	</div>
 	<div data-role="footer">
 		<h2>PhoneGap Sample 1</h2>&nbsp;|&nbsp;<h1><a href="#page1">Home</a></h1>
