@@ -16,9 +16,10 @@
     // Cordova is ready to be used!
     //
     function onDeviceReady() {
+		alert('Begin: onDeviceReady()');
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
-		alert('onDeviceReady()');
+		alert('End: onDeviceReady()');
     }
 
     // Called when a photo is successfully retrieved
