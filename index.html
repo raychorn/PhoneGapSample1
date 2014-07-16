@@ -39,7 +39,7 @@
       // The inline CSS rules are used to resize the image
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
-	  $('#server_address1').show();
+	  //$('#server_address1').show();
 	  alert(smallImage.src);
     }
 
@@ -114,17 +114,17 @@
   	<table width="100%">
     	<tr>
         	<td>
-  				<h2>07-14-2014 1:00p</h2>
+  				<h2>07-15-2014 7:00p</h2>
+            </td>
+        </tr>
+    	<tr>
+        	<td>
+    			<label>Server Address:</label>&nbsp;<input type="text" size="10" width="15" value="192.168.1.17:9999"/>
             </td>
         </tr>
     	<tr>
         	<td>
     			<button onclick="capturePhoto();">Capture Photo</button>
-            </td>
-        </tr>
-    	<tr id="server_address1" style="display:none;">
-        	<td>
-    			<label>Server Address:</label>&nbsp;<input type="text" size="10" width="15"/>
             </td>
         </tr>
     	<tr>
