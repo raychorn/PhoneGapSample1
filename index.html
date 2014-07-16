@@ -21,6 +21,18 @@
 		//alert('End: onDeviceReady()');
 	});
 
+	function send_image_to_backend(data) {
+		address = $('#txt_server_address').val();
+		$.ajax({
+  			type: "POST",
+  			url: address+"/save/image/",
+  			data: data
+		})
+  		.done(function( msg ) {
+    		alert( "Data Saved: " + msg );
+  		});
+  	}
+	
     // Called when a photo is successfully retrieved
     //
     function onPhotoDataSuccess(imageData) {
@@ -39,8 +51,9 @@
       // The inline CSS rules are used to resize the image
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
+      send_image_to_backend(imageData);
 	  //$('#server_address1').show();
-	  alert(smallImage.src);
+	  //alert(smallImage.src);
     }
 
     // Called when a photo is successfully retrieved
@@ -119,7 +132,7 @@
         </tr>
     	<tr>
         	<td>
-    			<label>Server Address:</label>&nbsp;<input type="text" size="10" width="15" value="192.168.1.17:9999"/>
+    			<label>Server Address:</label>&nbsp;<input id="txt_server_address" type="text" size="10" width="15" value="192.168.1.17:9999"/>
             </td>
         </tr>
     	<tr>
