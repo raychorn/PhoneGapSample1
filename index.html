@@ -23,14 +23,15 @@
 
 	function send_image_to_backend(data) {
 		address = $('#txt_server_address').val();
+		alert(address);
 		$.ajax({
-  			type: "POST",
-  			url: address+"/save/image/",
-  			data: data
+		  type: "POST",
+		  url: address+"/image/save",
+		  data: data
 		})
-  		.done(function( msg ) {
-    		alert( "Data Saved: " + msg );
-  		});
+	  .done(function( msg ) {
+		alert( "Data Saved: " + msg );
+	  });
   	}
 	
     // Called when a photo is successfully retrieved
@@ -51,9 +52,9 @@
       // The inline CSS rules are used to resize the image
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
-      send_image_to_backend(imageData);
 	  //$('#server_address1').show();
 	  //alert(smallImage.src);
+	  send_image_to_backend(imageData);
     }
 
     // Called when a photo is successfully retrieved
@@ -127,7 +128,7 @@
   	<table width="100%">
     	<tr>
         	<td>
-  				<h2>07-16-2014 5:30p</h2>
+  				<h2>07-16-2014 7:00p</h2>
             </td>
         </tr>
     	<tr>
