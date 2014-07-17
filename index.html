@@ -27,7 +27,7 @@
 		$.ajax({
 		  type: "POST",
 		  url: address+"/image/save",
-		  data: data
+		  data: {'image':data}
 		})
 	  .done(function( msg ) {
 		alert( "Data Saved: " + msg );
