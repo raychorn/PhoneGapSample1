@@ -23,17 +23,20 @@
 
 	function send_image_to_backend(data) {
 		address = $('#txt_server_address').val();
-		alert(address);
-		$.ajax({
-		  type: "POST",
+		var request = $.ajax({
 		  url: address+"/image/save",
-		  data: {'image':data}
-		})
-	  .done(function( msg ) {
-		alert( "Data Saved: " + msg );
-	  });
-  	}
-	
+		  type: "POST",
+		  data: '{ "data" : '+data+' }',
+		  dataType: "json"
+		});
+		request.done(function( msg ) {
+		  alert( 'DONE: ' + msg );
+		});
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( 'FAILED: ' + textStatus );
+		});
+	}
+	 
     // Called when a photo is successfully retrieved
     //
     function onPhotoDataSuccess(imageData) {
