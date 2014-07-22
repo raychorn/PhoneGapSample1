@@ -12,6 +12,8 @@
 	$(document).ready(function(){
 		//alert("document-ready");
 		$(this).delegate("#page2", "pageinit", function(ev, data){}); 
+		alert('doc.ready.1');
+		$.support.cors=true;
 	});
 
 	$(document).bind('pageinit', function () {
