@@ -23,6 +23,7 @@
 
 	function send_image_to_backend(data) {
 		address = $('#txt_server_address').val();
+		alert('address='+address);
 		var request = $.ajax({
 		  url: address+"/image/save",
 		  type: "POST",

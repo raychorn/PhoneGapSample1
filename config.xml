@@ -11,6 +11,7 @@ PhoneGap Sample 1		</description>
 		<author href="http://www.vyperlogix.com" email="raychorn@vyperlogix.com">
 Ray C Horn
 		</author>
+		<access origin="*" />
 		<preference name="phonegap-version" value="3.5.0" />
 		<preference name="orientation" value="default" />
 		<preference name="fullscreen" value="false" />
