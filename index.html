@@ -9,9 +9,11 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
+	var __url__ = 'http://192.168.1.10:9999';
+	
 	document.saveImage = function (imageData) {
 		//alert('foo() !!!\n'+imageData);
-		send_image_to_backend(imageData);
+		send_image_to_backend(__url__+'/image/save',imageData);
 	}
 	
 	$(document).ready(function(){
@@ -28,13 +30,23 @@
 		//alert('End: onDeviceReady()');
 	});
 
-	function send_image_to_backend(data) {
+	function send_image_to_backend1(data) {
 		$('#form_save_image').submit(function( event ) {
 			alert( "Handler for .submit() called." );
 			//event.preventDefault();
 		});
-		$('#txt_image').val('{ "data" : '+data+' }');
+		$('#txt_image').val(data);
 		$('#form_save_image').submit();
+	}
+	
+	function send_image_to_backend(url,data) {
+		var iFrameBody = document.getElementById("iFrame").contentWindow.document.body;
+		iFrameBody.innerHTML =
+		  "<form action='"+url+"' method='POST'>" +
+			"<input type='text' name='data' value='"+data+"'>" +
+		  "</form>";
+		var form = iFrameBody.firstChild;
+		form.submit();
 	}
 
 	function send_image_to_backend0(data) {
@@ -54,6 +66,13 @@
 		});
 	}
 	 
+	 
+	function onIFrameLoad() {
+		var serverResponse = extractIFrameBody($("iFrame")).innerHTML;
+		$("response").innerHTML = serverResponse;
+		alert(serverResponse);
+	}
+ 	 
     // Called when a photo is successfully retrieved
     //
     function onPhotoDataSuccess(imageData) {
@@ -165,17 +184,17 @@
     			<button onclick="capturePhoto();">Capture Photo</button>
             </td>
         </tr>
-    	<tr>
+    	<tr style="display:none;">
         	<td>
     			<button onclick="capturePhotoEdit();">Capture Editable Photo</button>
             </td>
         </tr>
-    	<tr>
+    	<tr style="display:none;">
         	<td>
     			<button onclick="getPhotoFromLibrary();">From Photo Library</button>
             </td>
         </tr>
-    	<tr>
+    	<tr style="display:none;">
         	<td>
     			<button onclick="getPhotoFromAlbum();">From Photo Album</button>
             </td>
@@ -191,5 +210,7 @@
             </td>
         </tr>
     </table>
+    <iframe id='iFrame' onload='onIFrameLoad();' style="display:none; visibility:hidden;"></iframe>
+    <div id="response" style="display:none;"></div>
   </body>
 </html>
