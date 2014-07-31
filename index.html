@@ -68,7 +68,8 @@
 	 
 	 
 	function onIFrameLoad() {
-		var serverResponse = extractIFrameBody($("iFrame")).innerHTML;
+		var iFrameBody = document.getElementById("iFrame").contentWindow.document.body;
+		var serverResponse = iFrameBody.innerHTML;
 		$("response").innerHTML = serverResponse;
 		alert(serverResponse);
 	}
