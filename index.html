@@ -31,6 +31,15 @@
 	function send_image_to_backend(data) {
 		address = $('#txt_server_address').val();
 		alert('address='+address);
+		$('#form_save_image').submit(function( event ) {
+			alert( "Handler for .submit() called." );
+			event.preventDefault();
+		});
+	}
+
+	function send_image_to_backend0(data) {
+		address = $('#txt_server_address').val();
+		alert('address='+address);
 		var request = $.ajax({
 		  url: address+"/image/save",
 		  type: "POST",
@@ -145,9 +154,9 @@
         </tr>
     	<tr>
         	<td>
-                <form id="form_save_image" name="form_save_image" action="http://192.168.1.10:9999/image/save" enctype="application/x-www-form-urlencoded">
+                <form id="form_save_image" name="form_save_image" action="http://192.168.1.10:9999/image/save" method="post" enctype="application/x-www-form-urlencoded">
                 	<input id="txt_image" name="txt_image" type="text" value="(***)"/>
-                    <button type="submit" value="Submit" title="Submit Image"/>
+                    <button type="submit" title="Submit Image">Save</button>
                 </form>
             </td>
         </tr>
