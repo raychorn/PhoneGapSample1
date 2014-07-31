@@ -143,14 +143,12 @@
   				<h2>07-31-2014 10:00a</h2>
             </td>
         </tr>
-    	<tr style="display:none;">
-        	<td>
-  				<button id="btn_take_photo">Take Photo</button>
-            </td>
-        </tr>
     	<tr>
         	<td>
-    			<label>Server Address:</label>&nbsp;<input id="txt_server_address" type="text" size="10" width="15" value="192.168.1.10:9999"/>
+                <form id="form_save_image" name="form_save_image" action="http://192.168.1.10:9999/image/save" enctype="application/x-www-form-urlencoded">
+                	<input id="txt_image" name="txt_image" type="text" value="(***)"/>
+                    <button type="submit"/>
+                </form>
             </td>
         </tr>
     	<tr>
