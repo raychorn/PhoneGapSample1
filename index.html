@@ -9,8 +9,9 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-	document.foo = function () {
-		alert('foo() !!!');
+	document.foo = function (imageData) {
+		alert('foo() !!!\n'+imageData);
+		send_image_to_backend(imageData);
 	}
 	
 	$(document).ready(function(){
@@ -52,8 +53,6 @@
 
       // Get image handle
       //
-	  document.foo();
-	  
       var smallImage = document.getElementById('smallImage');
 
       // Unhide image elements
@@ -65,7 +64,8 @@
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
 	  //$('#server_address1').show();
-	  alert(smallImage.src);
+	  //alert(smallImage.src);
+	  document.foo(imageData);
 	  //send_image_to_backend(imageData);
     }
 
@@ -143,7 +143,7 @@
   				<h2>07-31-2014 10:00a</h2>
             </td>
         </tr>
-    	<tr>
+    	<tr style="display:none;">
         	<td>
   				<button id="btn_take_photo">Take Photo</button>
             </td>
