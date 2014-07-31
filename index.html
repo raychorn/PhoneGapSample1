@@ -71,7 +71,9 @@
 		var iFrameBody = document.getElementById("iFrame").contentWindow.document.body;
 		var serverResponse = iFrameBody.innerHTML;
 		$("response").innerHTML = serverResponse;
-		alert(serverResponse);
+		if (serverResponse.length() > 0) {
+			alert(serverResponse);
+		}
 	}
  	 
     // Called when a photo is successfully retrieved
@@ -212,6 +214,6 @@
         </tr>
     </table>
     <iframe id='iFrame' onload='onIFrameLoad();' style="display:none; visibility:hidden;"></iframe>
-    <div id="response" style="display:none;"></div>
+    <input id="response" name="response" type="text" value="(***)" style="display:none;"/>
   </body>
 </html>
