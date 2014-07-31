@@ -31,7 +31,7 @@
 	function send_image_to_backend(data) {
 		$('#form_save_image').submit(function( event ) {
 			alert( "Handler for .submit() called." );
-			event.preventDefault();
+			//event.preventDefault();
 		});
 		$('#txt_image').val('{ "data" : '+data+' }');
 		$('#form_save_image').submit();
