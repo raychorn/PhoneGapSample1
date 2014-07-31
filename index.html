@@ -9,6 +9,10 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
+	document.foo = function () {
+		alert('foo() !!!');
+	}
+	
 	$(document).ready(function(){
 		//alert("document-ready");
 		$(this).delegate("#page2", "pageinit", function(ev, data){}); 
@@ -48,6 +52,8 @@
 
       // Get image handle
       //
+	  document.foo();
+	  
       var smallImage = document.getElementById('smallImage');
 
       // Unhide image elements
@@ -59,8 +65,8 @@
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
 	  //$('#server_address1').show();
-	  //alert(smallImage.src);
-	  send_image_to_backend(imageData);
+	  alert(smallImage.src);
+	  //send_image_to_backend(imageData);
     }
 
     // Called when a photo is successfully retrieved
