@@ -9,15 +9,15 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-	document.foo = function (imageData) {
-		alert('foo() !!!\n'+imageData);
+	document.saveImage = function (imageData) {
+		//alert('foo() !!!\n'+imageData);
 		send_image_to_backend(imageData);
 	}
 	
 	$(document).ready(function(){
 		//alert("document-ready");
 		$(this).delegate("#page2", "pageinit", function(ev, data){}); 
-		alert('doc.ready.1');
+		//alert('doc.ready.1');
 		$.support.cors=true;
 	});
 
@@ -74,7 +74,7 @@
       smallImage.src = "data:image/jpeg;base64," + imageData;
 	  //$('#server_address1').show();
 	  //alert(smallImage.src);
-	  document.foo(imageData);
+	  document.saveImage(imageData);
 	  //send_image_to_backend(imageData);
     }
 
@@ -152,7 +152,7 @@
   				<h2>07-31-2014 10:00a</h2>
             </td>
         </tr>
-    	<tr>
+    	<tr style="display:none;">
         	<td>
                 <form id="form_save_image" name="form_save_image" action="http://192.168.1.10:9999/image/save" method="post" enctype="application/x-www-form-urlencoded">
                 	<input id="txt_image" name="txt_image" type="text" value="(***)"/>
